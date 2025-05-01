@@ -35,7 +35,7 @@ Este proyecto es un sistema backend desarrollado en Java con Spring Boot, que pe
 
 This project is a backend system built with Java and Spring Boot that enables citizens to submit proposals, comment, and vote in a participatory platform. The solution is designed with scalability and maintainability in mind, following Hexagonal Architecture and Domain-Driven Design principles, and is cloud-ready.
 
-## 🔧 Technologies Used
+## Technologies Used
 
 ### 🧠 Backend Stack
 - Java 21
@@ -45,7 +45,7 @@ This project is a backend system built with Java and Spring Boot that enables ci
 - Apache Kafka
 
 ### 🧪 Testing
-- JUnit 5
+- JUnit
 - Mockito
 
 ### 📈 Observability
