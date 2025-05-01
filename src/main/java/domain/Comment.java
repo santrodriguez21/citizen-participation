@@ -1,28 +1,17 @@
 package domain;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.annotation.Id;
+
 import java.time.LocalDate;
 
+@Getter
+@Setter
 public class Comment {
-    private String userId;
+    @Id
+    private String id;
+    private String userDocument;
     private String description;
     private LocalDate publishDate;
-
-    public String getUserId() {
-        return userId;
-    }
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public LocalDate getPublishDate() {
-        return publishDate;
-    }
-    public void setPublishDate(LocalDate publishDate) {
-        this.publishDate = publishDate;
-    }
 }

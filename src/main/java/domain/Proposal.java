@@ -1,57 +1,26 @@
 package domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDate;
 import java.util.List;
 
+@Getter
+@Setter
+@Document(collection = "proposals")
 public class Proposal {
+    @Id
     private String id;
     private String title;
     private String description;
-    private String autorId;
+    private String authorDocument;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate limitDate;
     private List<Vote> votes;
     private List<Comment> comments;
 
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
-    }
-    public String getTitle() {
-        return title;
-    }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description){
-        this.description=description;
-    }
-    public String getAutorId() {
-        return autorId;
-    }
-    public void setAutorId(String autorId) {
-        this.autorId = autorId;
-    }
-    public LocalDate getLimitDate() {
-        return limitDate;
-    }
-    public void setLimitDate(LocalDate limitDate) {
-        this.limitDate = limitDate;
-    }
-    public List<Vote> getVotes() {
-        return votes;
-    }
-    public void setVotes(List<Vote> votes) {
-        this.votes = votes;
-    }
-    public List<Comment> getComments() {
-        return comments;
-    }
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
 }

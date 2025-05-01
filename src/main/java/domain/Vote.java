@@ -1,20 +1,11 @@
 package domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Vote {
-    private String userId;
+    private String userDocument;
     private boolean inFavor;
-
-    public String getUserId() {
-        return userId;
-    }
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-    public boolean isInFavor() {
-        return inFavor;
-    }
-    public void setInFavor(boolean inFavor) {
-        this.inFavor = inFavor;
-    }
-
 }
