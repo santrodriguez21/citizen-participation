@@ -22,6 +22,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    @PreAuthorize("hasAuthority('Moderator')")
     @GetMapping
     public List<User> getAll() {
         return userService.getAll();

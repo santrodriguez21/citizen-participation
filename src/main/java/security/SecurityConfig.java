@@ -18,14 +18,14 @@ import javax.crypto.SecretKey;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtFilter jwtFilter) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtFilter jwtFilter, SecurityProperties securityProperties) throws Exception {
         http
                 // Deshabilitamos CSRF (porque es una API RESTful)
                 .csrf(AbstractHttpConfigurer::disable)
 
                 // Configuramos autorización de peticiones
                 .authorizeRequests()
-                .requestMatchers("/api/users/login").permitAll() // Permitimos el acceso sin autenticación al login
+                .requestMatchers(securityProperties.getPublicUris().toArray(new String[0])).permitAll() // Permitimos el acceso sin autenticación al login
                 .anyRequest().authenticated() // Se requiere autenticación en el resto de las rutas
                 .and()
 

@@ -1,8 +1,8 @@
 package platform.controller;
 
-import domain.Comment;
-import domain.Proposal;
-import domain.Vote;
+import entities.domain.Comment;
+import entities.domain.Proposal;
+import entities.domain.Vote;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 

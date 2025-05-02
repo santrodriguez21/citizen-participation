@@ -4,3 +4,9 @@ spring:
       uri: mongodb://localhost:27017/citizen-db
   application:
     name: citizen-participation
+security:
+  public-uris:
+    - /api/users/login
+    - /api/users/mayor
+    - /api/users/citizen
+    - /api/users/moderator

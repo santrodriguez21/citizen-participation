@@ -1,6 +1,6 @@
 package platform.service;
 
-import domain.Proposal;
+import entities.domain.Proposal;
 import org.springframework.stereotype.Service;
 import platform.repository.ProposalRepository;
 

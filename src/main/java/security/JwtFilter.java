@@ -15,9 +15,11 @@ import java.io.IOException;
 public class JwtFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
+    private final SecurityProperties securityProperties;
 
-    public JwtFilter(JwtService jwtService) {
+    public JwtFilter(JwtService jwtService, SecurityProperties securityProperties) {
         this.jwtService = jwtService;
+        this.securityProperties = securityProperties;
     }
 
     // Se ejecuta en cada solicitud
@@ -26,7 +28,7 @@ public class JwtFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         // Si el request es para el endpoint /api/users/login, no verificamos el token
-        if (request.getRequestURI().equals("/api/users/login")) {
+        if (!requestNeedsAuthentication(request)) {
             filterChain.doFilter(request, response);
             return;
         }
@@ -48,6 +50,10 @@ public class JwtFilter extends OncePerRequestFilter {
             return bearerToken.substring(7);
         }
         return null;
+    }
+
+    private boolean requestNeedsAuthentication(HttpServletRequest request) {
+        return !securityProperties.getPublicUris().contains(request.getRequestURI());
     }
 }
 

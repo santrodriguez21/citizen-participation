@@ -1,8 +1,8 @@
 package platform.service;
 
-import domain.Comment;
-import domain.Proposal;
-import domain.Vote;
+import entities.domain.Comment;
+import entities.domain.Proposal;
+import entities.domain.Vote;
 import exception.BadRequestException;
 import org.springframework.stereotype.Service;
 import platform.repository.ProposalRepository;
@@ -66,6 +66,10 @@ public class ProposalService {
 
         if (proposal.getVotes() == null) proposal.setVotes(new ArrayList<>());
         vote.setUserDocument(userDocument);
+
+        if(proposal.getVotes().stream().anyMatch(v -> v.getUserDocument().equals(userDocument))){
+            proposal.getVotes().removeIf(v -> v.getUserDocument().equals(userDocument));
+        }
         proposal.getVotes().add(vote);
 
         return repository.save(proposal);
