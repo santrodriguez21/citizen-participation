@@ -26,6 +26,10 @@ public class ProposalService {
     }
 
     public Proposal create(Proposal proposal) {
+        if (proposal.getTitle() == null || proposal.getDescription() == null
+              || proposal.getLimitDate() == null) {
+            throw new BadRequestException("Proposal fields can not be empty");
+        }
         String userDocument = SecurityContextHolder.getContext().getAuthentication().getName();
         proposal.setAuthorDocument(userDocument);
         return repository.save(proposal);
