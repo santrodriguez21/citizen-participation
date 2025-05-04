@@ -4,6 +4,6 @@ import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-@TypeAlias("Moderator")
+@TypeAlias("entities.user.Moderator")
 public class Moderator extends User{
 }

@@ -29,17 +29,17 @@ public class UserController {
     }
 
     @PostMapping("/citizen")
-    public Citizen createCitizen(@RequestBody Citizen citizen) {
+    public String createCitizen(@RequestBody Citizen citizen) {
         return userService.createCitizen(citizen);
     }
 
     @PostMapping("/mayor")
-    public Mayor createMayor(@RequestBody Mayor mayor) {
+    public String createMayor(@RequestBody Mayor mayor) {
         return userService.createMayor(mayor);
     }
 
     @PostMapping("/moderator")
-    public Moderator createModerator(@RequestBody Moderator moderator) {
+    public String createModerator(@RequestBody Moderator moderator) {
         return userService.createModerator(moderator);
     }
 
